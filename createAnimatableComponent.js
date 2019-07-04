@@ -346,6 +346,10 @@ export default function createAnimatableComponent(WrappedComponent) {
         } else {
           this.stopAnimation();
         }
+      } else if (animation) {
+        this.animate(animation, duration, iterationDelay).then(endState =>
+          this.props.onAnimationEnd(endState),
+        )
       }
     }
 
